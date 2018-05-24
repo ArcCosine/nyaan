@@ -8,29 +8,31 @@
 body {
   text-align: center;
   background: #cccccc;
-}
-h1 {
-  font-size: 5vh;
+  padding: 2vh 0;
 }
 a {
   font-size: 5vh;
   text-decoration: none;
   color: #0088cc;
+  display: block;
+  padding: 1vh 0;
 }
     </style>
     <script>
 (()=>{
-
   const load = ()=>{
-    const link = document.getElementById('tweet');
-    link.href = `https://twitter.com/share?text=${encodeURIComponent('にゃ～ん!')}&url=${encodeURIComponent(location.href)}`;
+    const sayMeow = (id) => {
+      const link = document.getElementById(id);
+      link.href = `https://twitter.com/share?text=${encodeURIComponent(link.textContent)}&url=${encodeURIComponent(location.href)}`;
+    };
+    ['tweeet','tweet'].forEach(sayMeow);
   };
   document.addEventListener('DOMContentLoaded', load, false );
 })();
     </script>
   </head>
   <body>
-    <h1>にゃ～ん!</h1>
+    <a id="tweeet" href="#" target="_blank">にゃーん!</a>
     <a id="tweet" href="#" target="_blank">にゃ～ん!</a>
   </body>
 </html>
