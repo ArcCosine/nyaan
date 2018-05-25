@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>にゃ～ん</title>
+    <title>Say it ain't so, Meow!</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <style>
 body {
@@ -21,18 +21,18 @@ a {
     <script>
 (()=>{
   const load = ()=>{
-    const sayMeow = (id) => {
-      const link = document.getElementById(id);
-      link.href = `https://twitter.com/share?text=${encodeURIComponent(link.textContent)}&url=${encodeURIComponent(location.href)}`;
+    const sayMeow = (text) => {
+      const link = document.body.appendChild(document.createElement('a'));
+      link.appendChild(document.createTextNode(text));
+      link.setAttribute('href', `https://twitter.com/share?text=${encodeURIComponent(text)}&url=${encodeURIComponent(location.href)}`);
+      link.setAttribute('target', '_blank');
     };
-    ['tweeet','tweet'].forEach(sayMeow);
+    ['にゃーん!','にゃ～ん!','にゃ～ん?','にゃんにゃん！','うにゃー','みゃぉー',].forEach(sayMeow);
   };
   document.addEventListener('DOMContentLoaded', load, false );
 })();
     </script>
   </head>
   <body>
-    <a id="tweeet" href="#" target="_blank">にゃーん!</a>
-    <a id="tweet" href="#" target="_blank">にゃ～ん!</a>
   </body>
 </html>
