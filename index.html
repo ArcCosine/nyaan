@@ -8,7 +8,7 @@
 body {
   text-align: center;
   background: #cccccc;
-  padding: 2vh 0;
+  padding: 0;
 }
 a {
   font-size: 5vh;
@@ -23,8 +23,9 @@ a {
   const load = ()=>{
     const sayMeow = (text) => {
       const link = document.body.appendChild(document.createElement('a'));
+      const hashtag = 'nyaan';
       link.appendChild(document.createTextNode(text));
-      link.setAttribute('href', `https://twitter.com/share?text=${encodeURIComponent(text)}&url=${encodeURIComponent(location.href)}`);
+      link.setAttribute('href', `https://twitter.com/share?text=${encodeURIComponent(text)}&url=${encodeURIComponent('https://bit.ly/2Ja5WoG')}&hashtags=${encodeURIComponent(hashtag)}`);
       link.setAttribute('target', '_blank');
     };
     ['にゃーん!','にゃ～ん!','にゃ～ん?','にゃんにゃん！','うにゃー','みゃぉー','にゃー'].forEach(sayMeow);
