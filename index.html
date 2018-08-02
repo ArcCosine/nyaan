@@ -34,7 +34,7 @@ a {
       link.setAttribute('href', `https://twitter.com/share?text=${encodeURIComponent(text)}&url=${encodeURIComponent('https://bit.ly/2Ja5WoG')}&hashtags=${encodeURIComponent(hashtag)}`);
       link.setAttribute('target', '_blank');
     };
-    ['にゃーん!','にゃ～ん!','にゃ～ん?','にゃんにゃん！','うにゃー','みゃぉー','にゃー','にゃーぉ'].forEach(sayMeow);
+    ['にゃーん!','にゃ～ん!','にゃ～ん?','にゃんにゃん！','うにゃー','みゃぉー','にゃー','にゃーぉ','ごろにゃー','うみゃう','みゃー','なーご'].sort(()=>{return Math.random()-.5}).forEach(sayMeow);
   };
   document.addEventListener('DOMContentLoaded', load, false );
 })();
