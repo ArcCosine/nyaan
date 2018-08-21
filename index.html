@@ -13,13 +13,40 @@
     <meta property="og:image" content="https://arccosine.github.io/nyaan/basecat.png" />
     <link rel="shortcut icon" href="favicon.png">
     <style>
-body { text-align: center; background: #7E735F; padding: 0; margin: 0; } a.text { font-size: 5vh; text-decoration: none; color: rgba(255,255,255,.5); display: block; padding: 2.5vh 0; height: 5vh; line-height: 5vh; border-bottom: solid 1px rgba(255,255,255,.5); } header { padding: 2.5vh 0; border-bottom: solid 1px rgba(255,255,255,.5); } footer { color: rgba(255,255,255,.5); } footer a { color: rgba(255,255,255,.5); }
+body { text-align: center; background: #7E735F; padding: 0; margin: 0; } a.text { font-size: 5vh; text-decoration: none; color: rgba(255,255,255,.5); display: block; padding: 2.5vh 0; height: 5vh; line-height: 5vh; border-bottom: solid 1px rgba(255,255,255,.5); } a.active{ color: #999 !important; } header { padding: 2.5vh 0; border-bottom: solid 1px rgba(255,255,255,.5); } footer { color: rgba(255,255,255,.5); } footer a { color: rgba(255,255,255,.5); }
     </style>
     <script>
+const keyEvents = (eve) => {
+  const active = document.querySelector('.active');
+  switch(eve.keyCode) {
+    case 13: //enter
+      eve.preventDefault();
+      active.click();
+      break;
+    case 40: //down
+    case 74: //j
+      eve.preventDefault();
+      if( active.nextSibling ){
+        active.classList.remove('active');
+        active.nextSibling.classList.add('active');
+        window.scrollTo( 0, active.nextSibling.offsetTop );
+      }
+      break;
+    case 38: //up
+    case 75: //k
+      eve.preventDefault();
+      if( active.previousSibling){
+        active.classList.remove('active');
+        active.previousSibling.classList.add('active');
+        window.scrollTo( 0, active.previousSibling.offsetTop );
+      }
+      break;
+  };
+};
 const load = ()=>{
   const backColors=["FFB900","E74856","0078D7","0099BC","7A7574","767676","FF8C00","E81123","0063B1","2D7D9A","5D5A58","4C4A48","F7630C","EA005E","8E8CD8","00B7C3","68768A","69797E","CA5010","C30052","6B69D6","038387","515C6B","4A5459","DA3B01","E3008C","8764B8","00B294","567C73","647C64","EF6950","BF0077","744DA9","018574","486860","525E54","D13438","C239B3","B146C2","00CC6A","498205","847545","FF4343","9A0089","881798","10893E","107C10","7E735F"];
   document.body.style.backgroundColor = `#${backColors[Math.floor(Math.random()*backColors.length-1)]}`;
-  const sayMeow = (text) => {
+  const sayMeow = (text, index ) => {
     const section = document.querySelector('section');
     const link = section.appendChild(document.createElement('a'));
     const hashtag = 'nyaan';
@@ -27,8 +54,12 @@ const load = ()=>{
     link.setAttribute('href', `https://twitter.com/share?text=${encodeURIComponent(text)}&url=${encodeURIComponent('https://bit.ly/2Ja5WoG')}&hashtags=${encodeURIComponent(hashtag)}`);
     link.setAttribute('target', '_blank');
     link.classList.add('text');
+    if( index === 0 ){
+        link.classList.add('active');
+    }
   };
   ['みゃー……','うにゃ……','にゃーん……','にゃーん！','にゃ～ん！','にゃ～ん?','にゃんにゃん！','うにゃー','みゃぉー','にゃー','にゃーぉ','ごろにゃー','うみゃう','みゃー','なーご','ふかーっ！'].sort(()=>{return Math.random()-.5}).forEach(sayMeow);
+  document.body.addEventListener('keydown', keyEvents, false);
 };
 const nyaan = (res)=>{
   const pos = Math.floor(Math.random()*res.length);
