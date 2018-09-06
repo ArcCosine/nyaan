@@ -22,31 +22,35 @@ body { text-align: center; background: #7E735F; padding: 0; margin: 0; } a.text 
     </style>
     <script>
 const keyEvents = (eve) => {
+  if (eve.defaultPrevented) {
+    return; // Do nothing if the event was already processed
+  }
   const active = document.querySelector('.active');
-  switch(eve.keyCode) {
-    case 13: //enter
-      eve.preventDefault();
+  const keyName = eve.key;
+  switch(event.key){
+    case 'Enter':
       active.click();
       break;
-    case 40: //down
-    case 74: //j
-      eve.preventDefault();
+    case 'ArrowDown':
+    case 'j':
       if( active.nextSibling ){
         active.classList.remove('active');
         active.nextSibling.classList.add('active');
         window.scrollTo( 0, active.nextSibling.offsetTop );
       }
       break;
-    case 38: //up
-    case 75: //k
-      eve.preventDefault();
+    case 'ArrowUp':
+    case 'k':
       if( active.previousSibling ){
         active.classList.remove('active');
         active.previousSibling.classList.add('active');
         window.scrollTo( 0, active.previousSibling.offsetTop );
       }
       break;
+    default:
+      return;
   };
+  eve.preventDefault();
 };
 const load = ()=>{
   const backColors=["FFB900","E74856","0078D7","0099BC","7A7574","767676","FF8C00","E81123","0063B1","2D7D9A","5D5A58","4C4A48","F7630C","EA005E","8E8CD8","00B7C3","68768A","69797E","CA5010","C30052","6B69D6","038387","515C6B","4A5459","DA3B01","E3008C","8764B8","00B294","567C73","647C64","EF6950","BF0077","744DA9","018574","486860","525E54","D13438","C239B3","B146C2","00CC6A","498205","847545","FF4343","9A0089","881798","10893E","107C10","7E735F"];
@@ -72,7 +76,7 @@ const load = ()=>{
     location.href = links[Math.floor(Math.random()*links.length-1)].href;
   });
 
-  document.body.addEventListener('keydown', keyEvents, false);
+  window.addEventListener('keydown', keyEvents, false);
 };
 const nyaan = (res)=>{
   const pos = Math.floor(Math.random()*res.length);
