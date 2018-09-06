@@ -64,6 +64,14 @@ const load = ()=>{
     }
   };
   ['みゃー……','うにゃ……','にゃーん……','にゃーん！','にゃ～ん！','にゃ～ん?','にゃんにゃん！','うにゃー','みゃぉー','にゃー','にゃーぉ','ごろにゃー','うみゃう','みゃー','なーご','ふかーっ！'].sort(()=>{return Math.random()-.5}).forEach(sayMeow);
+
+  const headerImg = document.querySelector('header img'); 
+  headerImg.addEventListener('click', (eve)=>{
+    eve.preventDefault();
+    const links = document.querySelectorAll('a.text');
+    location.href = links[Math.floor(Math.random()*links.length-1)].href;
+  });
+
   document.body.addEventListener('keydown', keyEvents, false);
 };
 const nyaan = (res)=>{
@@ -76,8 +84,6 @@ const nyaan = (res)=>{
     headerImg.src = catLink 
   }, false );
 };
-document.addEventListener('DOMContentLoaded', load, false );
-window.nyaan = nyaan;
 window.addEventListener('load', function() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register("./serviceworker.js")
@@ -88,6 +94,8 @@ window.addEventListener('load', function() {
       });
   }
 });
+document.addEventListener('DOMContentLoaded', load, false );
+window.nyaan = nyaan;
     </script>
     <script src="https://script.google.com/macros/s/AKfycbzeDnzoGh0ht17HfPlrCRjoVouWxYvpYP3aPafox2FzAfnxnc79/exec?callback=nyaan" async></script>
   </head>
