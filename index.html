@@ -88,7 +88,7 @@ const nyaan = (res)=>{
     headerImg.src = catLink 
   }, false );
 };
-window.addEventListener('load', function() {
+window.addEventListener('load', ()=> {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register("./serviceworker.js")
       .then(function(registration) {
