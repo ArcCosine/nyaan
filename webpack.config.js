@@ -20,7 +20,7 @@ module.exports = {
     },
     output: {
         filename: '[name].js',
-        path: path.join(__dirname, 'docs/')
+        path: path.join(__dirname, 'dist/')
     },
     module: {
         rules: [
@@ -59,6 +59,6 @@ module.exports = {
         ])
     ],
     devServer: {
-        contentBase: './docs',
+        contentBase: './dist',
     }
 };
