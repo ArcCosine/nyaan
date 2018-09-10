@@ -1,0 +1,34 @@
+$baseColor:rgba(255,255,255,.5);
+$baseHeight: 5vh;
+$halfHeight: 2.5vh;
+
+body {
+    text-align: center;
+    background: #7E735F;
+    padding: 0;
+    margin: 0;
+    line-height: 1.0;
+}
+a.text {
+    font-size: $baseHeight;
+    text-decoration: none;
+    color: $baseColor;
+    display: block;
+    padding: $halfHeight 0;
+    height: $baseHeight;
+    line-height: $baseHeight;
+    border-bottom: solid 1px $baseColor;
+}
+a.active {
+    color: #999 !important;
+}
+header {
+    padding: $halfHeight 0;
+    border-bottom: solid 1px $baseColor;
+}
+footer {
+    color: $baseColor;
+    a {
+        color: $baseColor;
+    }
+}
