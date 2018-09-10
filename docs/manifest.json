@@ -1,0 +1,14 @@
+{
+  "name": "Say it ain't so, Meow!",
+  "short_name": "nyaan",
+  "display" : "standalone",
+  "start_url": "index.html",
+  "background_color" : "#2196F3",
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    }
+  ]
+}
