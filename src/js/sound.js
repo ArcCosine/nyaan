@@ -2,7 +2,7 @@ export const Kitty = function(){
     // Copy form the Horn Player.
 
     const audioSrc = 'kitty.mp3';
-    const audioCtx = new window.AudioContext();
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     const self = this;
     let source;
     let buffer;
