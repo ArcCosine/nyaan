@@ -11,7 +11,6 @@ const htmlOption = {
 };
 
 module.exports = {
-    watch: true,
     mode: 'production',
     entry: {
         main: [
@@ -31,10 +30,15 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            sourceMap: 1
+                            sourceMap: 0
                         }
                     },
-                    'sass-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: 0
+                        }
+                    }
                 ]
             }
         ]
@@ -57,8 +61,5 @@ module.exports = {
             }
 
         ])
-    ],
-    devServer: {
-        contentBase: './dist',
-    }
+    ]
 };

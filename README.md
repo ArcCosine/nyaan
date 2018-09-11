@@ -26,6 +26,37 @@ or
 
     npm run dev
 
+
+The browser will start up automatically.
+As live reloading,please modify and save the source directly.
+
+
+# Build script.
+
+    yarn run build
+
+or
+
+    npm run build
+
+
+The build files is expanded to the dist directory.
+
+
+# How to relase.
+
+    yarn run release
+
+or
+
+    npm run release
+
+And,
+
+    git commit .
+    git push origin master.
+
+
 # Request
 
 
@@ -67,6 +98,27 @@ or
 
 自動圧縮＆ライブリロード便利ですよね。
 
+
+# 単なるビルド
+
+    yarn run build
+
+or
+
+    npm run build
+
+
+# リリース作業
+
+    yarn run release
+
+or
+
+    npm run release
+
+
+あとは、適当にコミットして、pushすればokです。
+[githubpages](https://pages.github.com/)の設定は各自で行ってください。
 
 # 要望など
 
