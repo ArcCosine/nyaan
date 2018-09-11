@@ -2,6 +2,10 @@ import '../css/style.scss';
 import { keyEvents } from './keyevent.js';
 import './pwa.js';
 import './loadcat.js';
+import { Kitty } from './sound.js';
+
+
+const sound = new Kitty();
 
 // get random array
 const gra = (array) => {
@@ -22,10 +26,16 @@ const renderMeow = (text, index ) => {
     const hashtag = 'nyaan';
     link.appendChild(document.createTextNode(text));
     link.setAttribute('href', `https://twitter.com/share?text=${encodeURIComponent(text)}&url=${encodeURIComponent('https://bit.ly/2Ja5WoG')}&hashtags=${encodeURIComponent(hashtag)}`);
+    link.setAttribute('target','_blank');
     link.classList.add('text');
     if( index === 0 ){
         link.classList.add('active');
     }
+    link.addEventListener('click', (eve)=>{
+        sound.start({
+            loop: false
+        });
+    }, false);
 };
 
 

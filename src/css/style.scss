@@ -19,6 +19,17 @@ a.text {
     line-height: $baseHeight;
     border-bottom: solid 1px $baseColor;
 }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        list-style-type: none;
+        margin: 0.5em 0 0 0;
+        padding: 0;
+    }
+}
 a.active {
     color: #999 !important;
 }
