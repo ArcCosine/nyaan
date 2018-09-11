@@ -7,8 +7,8 @@ self.addEventListener('install', (eve)=>{
     eve.waitUntil(
         caches.open(cacheName).then((cache)=>{
             return cache.addAll([
-                '/',
-                '/index.html',
+                './',
+                'index.html',
                 'kitty.mp3'
             ])
             .then(()=>self.skipWaiting())
