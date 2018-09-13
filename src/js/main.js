@@ -5,7 +5,6 @@ import './loadcat.js';
 import { Kitty } from './sound.js';
 
 
-const sound = new Kitty();
 
 // get random array
 const gra = (array) => {
@@ -32,6 +31,7 @@ const renderMeow = (text, index ) => {
         link.classList.add('active');
     }
     link.addEventListener('click', (eve)=>{
+        const sound = new Kitty();
         sound.start({
             loop: false
         });
