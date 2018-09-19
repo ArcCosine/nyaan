@@ -3,7 +3,10 @@ const moveNode = (activeNode,judgeNode) => {
     if( judgeNode ){
         activeNode.classList.remove('active');
         judgeNode.classList.add('active');
-        window.scrollTo(0, judgeNode.offsetTop);
+        window.scrollTo({
+            top:judgeNode.offsetTop,
+            behavior: 'smooth'
+        });
     }
 };
 

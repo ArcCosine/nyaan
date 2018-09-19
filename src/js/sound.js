@@ -29,24 +29,23 @@ export const Kitty = function(){
     };
 
 
-    this.start = (opts) => {
-        const shouldLoop = opts.loop; // always loop if from an event.
+    this.start = () => {
+        return new Promise((resolve, reject)=>{
+            loadSound((tmpBuffer) =>{
+                source = audioCtx.createBufferSource();
 
-        loadSound((tmpBuffer) =>{
-            source = audioCtx.createBufferSource();
+                source.connect(audioCtx.destination);
 
-            source.connect(audioCtx.destination);
+                source.buffer = tmpBuffer;
 
-            source.buffer = tmpBuffer;
+                source.addEventListener('ended', ()=>{
+                    self.stop();
+                    resolve();
+                }, false);
 
-            source.onended = function() {
-                self.stop();
-            };
-
-            source.start(0);
-            source.loop = shouldLoop;
-            //source.loopStart = 0.24;
-            //source.loopEnd = 0.34;
+                source.start(0);
+                source.loop = false;
+            });
         });
     };
 
@@ -54,11 +53,7 @@ export const Kitty = function(){
         if (!!source === true) {
             source.loop = false;
         }
-
-        //this.onstopped();
     };
-
-    //this.onstopped = function() {};
 
     const init = () => {
         loadSound((decodedBuffer) =>{

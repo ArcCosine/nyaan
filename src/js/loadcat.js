@@ -2,9 +2,9 @@
 const loadCat = (source)=>{
     return new Promise((resolve,reject)=>{
         const image = new Image();
-        image.onload = ()=>{
+        image.addEventListener('load', ()=>{
             resolve(source);
-        }
+        }, false );
         image.src = source;
     });
 }
