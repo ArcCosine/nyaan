@@ -1,6 +1,6 @@
 $baseColor:rgba(255,255,255,.5);
-$baseHeight: 5vh;
-$halfHeight: 2.5vh;
+$baseHeight: 4vh;
+$halfHeight: 2vh;
 
 body {
     text-align: center;
@@ -9,16 +9,30 @@ body {
     margin: 0;
     line-height: 1.0;
 }
+
+section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    @media screen and (max-width: 1000px){
+        grid-template-columns: 1fr 1fr;
+    }
+    @media screen and (max-width: 600px){
+        grid-template-columns: 1fr;
+    }
+}
+
 a.text {
     font-size: $baseHeight;
     text-decoration: none;
     color: $baseColor;
     display: block;
-    padding: $halfHeight 0;
-    height: $baseHeight;
+    margin: 0px 10px 10px 10px;
+    padding: $baseHeight 0;
     line-height: $baseHeight;
-    border-bottom: solid 1px $baseColor;
+    border: solid 1px $baseColor;
+    border-radius: 10px;
 }
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -30,13 +44,15 @@ ul {
         padding: 0;
     }
 }
+
 a.active {
     color: #999 !important;
 }
+
 header {
     padding: $halfHeight 0;
-    border-bottom: solid 1px $baseColor;
 }
+
 footer {
     color: $baseColor;
     a {
