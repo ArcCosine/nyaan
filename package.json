@@ -4,7 +4,7 @@
   },
   "scripts": {
     "dev": "npx webpack-dev-server --config webpack.dev.config.js --open",
-    "build": "npx webpack --config webpack.dev.config.js --mode development",
+    "build": "npx webpack --config webpack.dev.config.js --mode production",
     "release": "npx webpack --config webpack.prod.config.js --mode production && cp dist/*.* ."
   },
   "devDependencies": {
