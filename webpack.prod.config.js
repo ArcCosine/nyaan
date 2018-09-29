@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const htmlOption = {
     template: './src/html/index.html',
@@ -42,6 +43,9 @@ module.exports = {
                 ]
             }
         ]
+    },
+    optimization: {
+        minimizer: [new UglifyJSPlugin()]
     },
     plugins :[
         new HtmlWebpackPlugin(htmlOption),

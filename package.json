@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "uglifyjs-webpack-plugin": "^1.3.0"
+    "uglifyjs-webpack-plugin": "^2.0.1"
   },
   "scripts": {
     "dev": "npx webpack-dev-server --config webpack.dev.config.js --open",
