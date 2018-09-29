@@ -27,7 +27,7 @@ const renderMeow = (text, index ) => {
     const link = section.appendChild(document.createElement('a'));
     const hashtag = 'nyaan';
     link.appendChild(document.createTextNode(text));
-    link.setAttribute('href', `https://twitter.com/share?text=${encodeURIComponent(text)}&url=${encodeURIComponent('https://bit.ly/2Ja5WoG')}&hashtags=${encodeURIComponent(hashtag)}`);
+    link.setAttribute('href', `https://twitter.com/share?text=${encodeURIComponent(text)}&url=${encodeURIComponent('https://nyaan.work/')}&hashtags=${encodeURIComponent(hashtag)}`);
     link.setAttribute('target','_blank');
     link.classList.add('text');
     if( index === 0 ){
