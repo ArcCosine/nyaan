@@ -3,7 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const htmlOption = {
     template: './src/html/index.html',
@@ -45,9 +45,17 @@ module.exports = {
         ]
     },
     optimization: {
-        minimizer: [new UglifyJSPlugin({
-            cache: true
-        })]
+        minimize: true,
+        minimizer: [new TerserPlugin({
+        terserOptions: {
+          ecma: 6,
+          compress: true,
+          output: {
+            comments: false,
+            beautify: false
+          }
+        }
+      })]
     },
     plugins :[
         new HtmlWebpackPlugin(htmlOption),
