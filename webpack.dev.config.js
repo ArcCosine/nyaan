@@ -62,8 +62,11 @@ module.exports = {
             {
                 from: 'src/manifest.json',
                 to : ''
+            },
+            {
+                from: 'src/meow.json',
+                to : ''
             }
-
         ])
     ],
     devServer: {

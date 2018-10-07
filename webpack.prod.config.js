@@ -45,7 +45,9 @@ module.exports = {
         ]
     },
     optimization: {
-        minimizer: [new UglifyJSPlugin()]
+        minimizer: [new UglifyJSPlugin({
+            cache: true
+        })]
     },
     plugins :[
         new HtmlWebpackPlugin(htmlOption),
@@ -66,8 +68,11 @@ module.exports = {
             {
                 from: 'src/manifest.json',
                 to : ''
+            },
+            {
+                from: 'src/meow.json',
+                to : ''
             }
-
         ])
     ]
 };

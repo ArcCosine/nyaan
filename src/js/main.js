@@ -53,31 +53,14 @@ const load = () =>{
     ];
     document.body.style.backgroundColor = gra(backColors);
 
-    [
-        'みゃー……',
-        'うにゃ……',
-        'にゃーん……',
-        'にゃーん！',
-        'にゃ～ん！',
-        'にゃ～ん?',
-        'にゃんにゃん！',
-        'うにゃー',
-        'みゃぉー',
-        'にゃー',
-        'にゃーぉ',
-        'ごろにゃー',
-        'うみゃう',
-        'みゃー',
-        'なーご',
-        'ふかーっ！',
-        'ごろごろ……',
-        'ふしゃーっ！',
-        'うにゃうにゃ',
-        'にゃぉーん',
-        'にゃーん！にゃーん！',
-        'ふにゃぁ……',
-        'ごろにゃーん',
-    ].sort(()=>{return Math.random()-.5}).forEach(renderMeow);
+    fetch('meow.json').then((response)=>{
+        return response.json();
+    }).then((jsondata)=>{
+        const match = location.href.match('[?&]lang=([^&]+)');
+        const lang = match ? match[1] : 'ja';
+        const list = typeof jsondata[lang] !== 'undefined' ? jsondata[lang] : jsondata.ja;
+        list.sort(()=>{return Math.random()-.5}).forEach(renderMeow)
+    });
 
     const headerImg = document.querySelector('header img');
     headerImg.addEventListener('click', clickImage, false);

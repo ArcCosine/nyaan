@@ -1,6 +1,6 @@
 self.addEventListener('fetch',(event)=>{});
 
-const version = "0.0.1";
+const version = "0.0.3";
 const cacheName = `nyaan-${version}`;
 
 self.addEventListener('install', (eve)=>{
