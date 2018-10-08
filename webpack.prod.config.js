@@ -4,11 +4,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const Terser = require('terser');
+const jsonminify = require("jsonminify");
 
 const htmlOption = {
     template: './src/html/index.html',
     filename: 'index.html',
-    inlineSource: '.(js|css)$'
+    inlineSource: '.(js|css)$',
+    minify: true
 };
 
 module.exports = {
@@ -67,7 +70,10 @@ module.exports = {
             },
             {
                 from: 'src/js/serviceworker.js',
-                to : ''
+                to : '',
+                transform: function(content, path) {
+                    return Terser.minify(content.toString()).code.toString();
+                }
             },
             {
                 from: 'src/sound/',
@@ -75,11 +81,18 @@ module.exports = {
             },
             {
                 from: 'src/manifest.json',
-                to : ''
+                to : '',
+                transform: function(content, path) {
+                    return jsonminify(content.toString());
+                }
             },
             {
                 from: 'src/meow.json',
-                to : ''
+                to : '',
+                transform: function(content, path) {
+                    return jsonminify(content.toString());
+                }
+
             }
         ])
     ]
