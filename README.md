@@ -1,6 +1,6 @@
 # What's this?
 
-Meow!
+[Meow!](https://nyaan.work/?lang=en)
 
 # Serious commentary
 
@@ -67,7 +67,7 @@ Replay [@ArcCosine](https://twitter.com/ArcCosine).
 # これは何？
 
 
-にゃ～ん！
+[にゃ～ん！](https://nyaan.work/)
 
 
 # まじめな解説文
