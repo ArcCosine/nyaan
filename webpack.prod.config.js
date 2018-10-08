@@ -11,7 +11,10 @@ const htmlOption = {
     template: './src/html/index.html',
     filename: 'index.html',
     inlineSource: '.(js|css)$',
-    minify: true
+    minify:{
+        collapseWhitespace: true,
+        removeComments: true
+    }
 };
 
 module.exports = {
