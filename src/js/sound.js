@@ -55,11 +55,8 @@ export const Kitty = function(){
         }
     };
 
-    const init = () => {
-        loadSound((decodedBuffer) =>{
-            buffer = decodedBuffer;
-        });
-    };
-
-    init();
+    // entry point
+    loadSound((decodedBuffer) =>{
+        buffer = decodedBuffer;
+    });
 };

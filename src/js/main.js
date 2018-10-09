@@ -11,7 +11,7 @@ const gra = (array) => {
     return array[Math.floor(Math.random()*array.length-1)];
 };
 
-// random meow
+// click meow
 const clickImage = (eve) => {
     eve.preventDefault();
     const sound = new Kitty();
@@ -62,9 +62,8 @@ const load = () =>{
         list.sort(()=>{return Math.random()-.5}).forEach(renderMeow)
     });
 
-    const headerImg = document.querySelector('header img');
-    headerImg.addEventListener('click', clickImage, false);
-
+    // event bind
+    document.querySelector('header img').addEventListener('click', clickImage, false);
     document.addEventListener('keydown', keyEvents, false);
 };
 
