@@ -1,1 +1,0 @@
-self.addEventListener("fetch",e=>{});const version="0.0.3",cacheName="nyaan-0.0.3";self.addEventListener("install",e=>{e.waitUntil(caches.open(cacheName).then(e=>e.addAll(["./","index.html","kitty.mp3"]).then(()=>self.skipWaiting())))});
