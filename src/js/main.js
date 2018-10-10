@@ -1,7 +1,7 @@
 import '../css/style.scss';
 import { keyEvents } from './keyevent.js';
 import './pwa.js';
-import './loadcat.js';
+import { loadScript } from './loadcat.js';
 import { Kitty } from './sound.js';
 
 
@@ -53,6 +53,7 @@ const load = () =>{
     ];
     document.body.style.backgroundColor = gra(backColors);
 
+    // load meow
     fetch('meow.json').then((response)=>{
         return response.json();
     }).then((jsondata)=>{
@@ -65,6 +66,19 @@ const load = () =>{
     // event bind
     document.querySelector('header img').addEventListener('click', clickImage, false);
     document.addEventListener('keydown', keyEvents, false);
+
+    //create hash
+    const imghash = location.href.match('[?&]imghash=([^&]+)');
+    if( imghash ){
+        const bytes = new Uint8Array(imghash[1].match(/.{1,2}/g).map(v => parseInt(v, 16)));
+        const decoder = new TextDecoder("utf-8");
+        const meta = document.querySelector('meta[property="og:image"]');
+        const imageUrl = decoder.decode(bytes);
+        meta.setAttribute('content',imageUrl);
+        loadScript(imageUrl);
+    } else {
+        loadScript();
+    }
 };
 
 // Entry Point
