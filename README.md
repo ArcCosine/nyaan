@@ -45,16 +45,11 @@ The build files is expanded to the dist directory.
 
 # How to relase.
 
-    yarn run release
-
-or
-
-    npm run release
-
-And,
-
     git commit .
     git push origin master.
+
+You need to change the setting of githubpages.
+Please select master/docs in githubpages setting.
 
 
 # Request
@@ -110,15 +105,11 @@ or
 
 # リリース作業
 
-    yarn run release
 
-or
-
-    npm run release
-
-
-あとは、適当にコミットして、pushすればokです。
+適当にコミットして、pushすればokです。
 [githubpages](https://pages.github.com/)の設定は各自で行ってください。
+master/docsを選ばないと永遠に表示されません。
+
 
 # 要望など
 
