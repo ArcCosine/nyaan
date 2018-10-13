@@ -68,14 +68,14 @@ const load = () =>{
     document.addEventListener('keydown', keyEvents, false);
 
     //create hash
-    const imghash = location.href.match('[?&]imghash=([^&]+)');
+    const imghash = location.href.match('#\/([^&]+)');
     if( imghash ){
         const bytes = new Uint8Array(imghash[1].match(/.{1,2}/g).map(v => parseInt(v, 16)));
         const decoder = new TextDecoder("utf-8");
         const meta = document.querySelector('meta[property="og:image"]');
         const imageUrl = decoder.decode(bytes);
         meta.setAttribute('content',imageUrl);
-        loadScript(imageUrl);
+        loadScript(imageUrl, imghash[1]);
     } else {
         loadScript();
     }

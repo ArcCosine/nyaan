@@ -7,10 +7,10 @@ const loadCat = (source)=>{
         }, false );
         image.src = source;
     });
-}
+};
 
 // load cats script.
-export const loadScript = (url) => {
+export const loadScript = (url,imghash) => {
     if( typeof url === 'undefined' ){
         fetch('https://api.thecatapi.com/v1/images/search?size=small&mime_type=jpg,png&format=json&order=RANDOM&limit=1&8ade48b6-7830-43aa-9c6b-5c557d072995').then((response)=>{
             return response.json()
@@ -23,7 +23,7 @@ export const loadScript = (url) => {
                 const imgUrl = Array.from(buf).map(v => v.toString(16)).join('');
                 const aTags = document.querySelectorAll('section a.text');
                 aTags.forEach((node,index,array)=>{
-                    node.setAttribute('href', node.href.replace(/text=/, `text=https%3A%2F%2Fnyaan.work%2F%3Fimghash=${imgUrl}%0A`) );
+                    node.setAttribute('href', node.href.replace(/text=/, `text=${encodeURIComponent('https://nyaan.work/#/')}${imgUrl}%0A`) );
                 });
             });
         });
@@ -32,7 +32,7 @@ export const loadScript = (url) => {
             document.querySelector('header img').src = img;
             const aTags = document.querySelectorAll('section a.text');
             aTags.forEach((node,index,array)=>{
-                node.setAttribute('href', node.href.replace(/text=/, `text=https%3A%2F%2Fnyaan.work%2F%3Fimghash=${url}%0A`) );
+                node.setAttribute('href', node.href.replace(/text=/, `text=${encodeURIComponent('https://nyaan.work/#/')}${imghash}%0A`) );
             });
         });
     }
