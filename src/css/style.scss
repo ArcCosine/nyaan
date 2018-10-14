@@ -67,6 +67,7 @@ div#reload {
     &:hover {
         cursor: pointer;
     }
+    -webkit-tap-highlight-color: transparent;
 }
 
 div#reload.loadend {
