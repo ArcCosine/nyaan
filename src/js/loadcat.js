@@ -9,6 +9,14 @@ const loadCat = (source)=>{
     });
 };
 
+const replaceATags = (imageUrl) => {
+    const aTags = document.querySelectorAll('section a.text');
+    aTags.forEach((node,index,array)=>{
+        node.setAttribute('href', node.href.replace(/text=.*?\&/, `text=${encodeURIComponent('https://nyaan.work/#/')}${imageUrl}%0A${encodeURIComponent(node.textContent)}&`));
+    });
+    document.getElementById('reload').classList.add('loadend');
+};
+
 // load cats script.
 export const loadScript = (url,imghash) => {
     if( typeof url === 'undefined' ){
@@ -21,29 +29,19 @@ export const loadScript = (url,imghash) => {
                 const buf = encoder.encode(img);
 
                 const imageUrl = Array.from(buf).map(v => v.toString(16)).join('');
-                const aTags = document.querySelectorAll('section a.text');
-                aTags.forEach((node,index,array)=>{
-                    node.setAttribute('href', node.href.replace(/text=/, `text=${encodeURIComponent('https://nyaan.work/#/')}${imageUrl}%0A`) );
-                });
 
                 const meta = document.querySelector('meta[property="og:image"]');
                 meta.setAttribute('content',img);
                 history.replaceState( null, null, `/#/${imageUrl}`);
 
-                const reload = document.getElementById('reload');
-                reload.classList.add('loadend');
+                replaceATags(imageUrl);
 
             });
         });
     } else {
         loadCat(url).then((img)=>{
             document.querySelector('header img').src = img;
-            const aTags = document.querySelectorAll('section a.text');
-            aTags.forEach((node,index,array)=>{
-                node.setAttribute('href', node.href.replace(/text=/, `text=${encodeURIComponent('https://nyaan.work/#/')}${imghash}%0A`) );
-            });
-            const reload = document.getElementById('reload');
-            reload.classList.add('loadend');
+            replaceATags(img);
         });
     }
 };
