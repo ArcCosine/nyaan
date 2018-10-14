@@ -1,6 +1,8 @@
 $baseColor:rgba(255,255,255,.5);
 $baseHeight: 4vh;
 $halfHeight: 2vh;
+$circleT: rgba(255,255,255,.2);
+$circleC: rgba(255,255,255,.8);
 
 body {
     text-align: center;
@@ -46,6 +48,40 @@ ul {
     }
 }
 
+div#reload {
+    display: inline-block;
+    width: $halfHeight;
+    height: $halfHeight;
+    margin: 0px;
+    font-size: 10px;
+    position: relative;
+    text-indent: -9999em;
+    border: 0.5em solid $circleT;
+    border-left: 0.5em solid $circleC;
+    transform: translateZ(0);
+    animation: load8 1.1s infinite linear;    
+    border-radius: 50%;
+    &::after {
+        border-radius: 50%;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+div#reload.loadend {
+    border: 0.5em solid $circleC;
+}
+
+@keyframes load8 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 a.active {
     color: #999 !important;
 }
@@ -60,6 +96,7 @@ header {
 
     img {
         cursor: pointer;
+        margin-right: 10px;
     }
 }
 

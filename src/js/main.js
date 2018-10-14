@@ -20,6 +20,12 @@ const clickImage = (eve) => {
     });
 };
 
+const reloadImage = (eve) => {
+    eve.preventDefault();
+    document.getElementById('reload').classList.remove('loadend');
+    loadScript();
+}
+
 
 // render meow
 const renderMeow = (text, index ) => {
@@ -66,6 +72,7 @@ const load = () =>{
     // event bind
     document.querySelector('header img').addEventListener('click', clickImage, false);
     document.addEventListener('keydown', keyEvents, false);
+    document.getElementById('reload').addEventListener('click', reloadImage, false );
 
     //create hash
     const imghash = location.href.match('#\/([^&]+)');
