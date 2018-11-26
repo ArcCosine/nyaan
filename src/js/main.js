@@ -28,13 +28,12 @@ const reloadImage = (eve) => {
 
 
 // render meow
-const renderMeow = (text, index ) => {
+const renderMeow = (text, index) => {
     const section = document.querySelector('section');
     const link = section.appendChild(document.createElement('a'));
     const hashtag = 'nyaan';
     link.appendChild(document.createTextNode(text));
     link.setAttribute('href', `https://twitter.com/share?text=${encodeURIComponent(text)}&url=${encodeURIComponent('https://nyaan.work/')}&hashtags=${encodeURIComponent(hashtag)}`);
-    link.setAttribute('target','_blank');
     link.classList.add('text');
     if( index === 0 ){
         link.classList.add('active');

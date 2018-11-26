@@ -12,7 +12,7 @@ const loadCat = (source)=>{
 const replaceATags = (imageUrl) => {
     const aTags = document.querySelectorAll('section a.text');
     aTags.forEach((node,index,array)=>{
-        node.setAttribute('href', node.href.replace(/text=.*?\&/, `text=${encodeURIComponent('https://nyaan.work/#/')}${imageUrl}%0A${encodeURIComponent(node.textContent)}&`));
+        node.setAttribute('href', node.href.replace(/url=.*?\&/, `url=${encodeURIComponent('https://nyaan.work/#/'+imageUrl)}&`));
     });
     document.getElementById('reload').classList.add('loadend');
 };

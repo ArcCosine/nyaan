@@ -1,8 +1,12 @@
 {
-  "dependencies": {},
+  "dependencies": {
+    "netlify-lambda": "^1.0.3"
+  },
   "scripts": {
     "dev": "npx webpack-dev-server --config webpack.dev.config.js --open",
-    "build": "npx webpack --config webpack.prod.config.js --mode production"
+    "build": "npx webpack --config webpack.prod.config.js --mode production",
+    "start:lambda": "netlify-lambda serve src/lambda",
+    "build:lambda": "netlify-lambda build src/lambda"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^4.5.2",
