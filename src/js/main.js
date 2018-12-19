@@ -1,30 +1,8 @@
 import '../css/style.scss';
+import * as common from './common.js';
 import { keyEvents } from './keyevent.js';
 import './pwa.js';
 import { loadScript } from './loadcat.js';
-import { Kitty } from './sound.js';
-
-
-
-// get random array
-const gra = (array) => {
-    return array[Math.floor(Math.random()*array.length-1)];
-};
-
-// click meow
-const clickImage = (eve) => {
-    eve.preventDefault();
-    const sound = new Kitty();
-    sound.start().then(()=>{
-        window.top.location.href = gra(document.querySelectorAll('a.text')).href;
-    });
-};
-
-const reloadImage = (eve) => {
-    eve.preventDefault();
-    document.getElementById('reload').classList.remove('loadend');
-    loadScript();
-}
 
 
 // render meow
@@ -38,10 +16,7 @@ const renderMeow = (text, index) => {
     if( index === 0 ){
         link.classList.add('active');
     }
-    link.addEventListener('click', (eve)=>{
-        const sound = new Kitty();
-        sound.start();
-    }, false);
+    link.addEventListener('click', common.clickLink , false);
 };
 
 
@@ -56,7 +31,7 @@ const load = () =>{
         "#525E54","#D13438","#C239B3","#B146C2","#00CC6A","#498205","#847545",
         "#FF4343","#9A0089","#881798","#10893E","#107C10","#7E735F"
     ];
-    document.body.style.backgroundColor = gra(backColors);
+    document.body.style.backgroundColor = common.gra(backColors);
 
     // load meow
     fetch('meow.json').then((response)=>{
@@ -69,9 +44,9 @@ const load = () =>{
     });
 
     // event bind
-    document.querySelector('header img').addEventListener('click', clickImage, false);
+    document.querySelector('header img').addEventListener('click', common.clickImage, false);
     document.addEventListener('keydown', keyEvents, false);
-    document.getElementById('reload').addEventListener('click', reloadImage, false );
+    document.getElementById('reload').addEventListener('click', common.reloadImage, false );
 
     //create hash
     const imghash = location.href.match('#\/([^&]+)');

@@ -9,6 +9,7 @@ const loadCat = (source)=>{
     });
 };
 
+// replace tags.
 const replaceATags = (imageUrl) => {
     const aTags = document.querySelectorAll('section a.text');
     aTags.forEach((node,index,array)=>{

@@ -1,3 +1,5 @@
+import * as common from './common.js';
+
 // move Nodes.
 const moveNode = (activeNode,judgeNode) => {
     if( judgeNode ){
@@ -30,6 +32,11 @@ export const keyEvents = (eve) => {
     case 'ArrowUp':
     case 'k':
       moveNode(active, active.previousSibling);
+      break;
+    case 'r':
+      if( !eve.ctrlKey ){
+        common.reloadImage(eve);
+      }
       break;
     default:
       return;

@@ -1,2 +1,9 @@
 [build]
-  functions = "src/lambda"
+  command = "npm run build"
+  pubilsh = "src"
+  functions = "lambda"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

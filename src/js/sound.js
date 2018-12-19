@@ -1,4 +1,4 @@
-export const Kitty = function(){
+export const Sound = function(){
     // Copy form the Horn Player.
 
     const audioSrc = 'kitty.mp3';
@@ -33,16 +33,12 @@ export const Kitty = function(){
         return new Promise((resolve, reject)=>{
             loadSound((tmpBuffer) =>{
                 source = audioCtx.createBufferSource();
-
                 source.connect(audioCtx.destination);
-
                 source.buffer = tmpBuffer;
-
                 source.addEventListener('ended', ()=>{
                     self.stop();
                     resolve();
                 }, false);
-
                 source.start(0);
                 source.loop = false;
             });
