@@ -37,13 +37,13 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            sourceMap: 0
+                            sourceMap: false
                         }
                     },
                     {
                         loader: 'sass-loader',
                         options: {
-                            sourceMap: 0
+                            sourceMap: false
                         }
                     }
                 ]
