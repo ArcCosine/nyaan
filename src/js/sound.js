@@ -1,4 +1,4 @@
-export const Sound = function(){
+export const Sound = function () {
     // Copy form the Horn Player.
 
     const audioSrc = 'kitty.mp3';
@@ -18,10 +18,10 @@ export const Sound = function(){
             return;
         }
 
-        fetch(audioSrc).then((response)=>{
+        fetch(audioSrc).then((response) => {
             return response.arrayBuffer();
-        }).then((buffer)=>{
-            audioCtx.decodeAudioData(buffer, (decodedBuffer)=>{
+        }).then((buffer) => {
+            audioCtx.decodeAudioData(buffer, (decodedBuffer) => {
                 callback(decodedBuffer);
             });
         });
@@ -30,12 +30,12 @@ export const Sound = function(){
 
 
     this.start = () => {
-        return new Promise((resolve, reject)=>{
-            loadSound((tmpBuffer) =>{
+        return new Promise((resolve, reject) => {
+            loadSound((tmpBuffer) => {
                 source = audioCtx.createBufferSource();
                 source.connect(audioCtx.destination);
                 source.buffer = tmpBuffer;
-                source.addEventListener('ended', ()=>{
+                source.addEventListener('ended', () => {
                     self.stop();
                     resolve();
                 }, false);
@@ -45,14 +45,14 @@ export const Sound = function(){
         });
     };
 
-    this.stop = () =>{
+    this.stop = () => {
         if (!!source === true) {
             source.loop = false;
         }
     };
 
     // entry point
-    loadSound((decodedBuffer) =>{
+    loadSound((decodedBuffer) => {
         buffer = decodedBuffer;
     });
 };

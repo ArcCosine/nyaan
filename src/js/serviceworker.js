@@ -1,9 +1,9 @@
 const version = '0.0.6';
 const cacheName = `nyaan-${version}`;
 
-self.addEventListener('install', (eve)=>{
+self.addEventListener('install', (eve) => {
     eve.waitUntil(
-        caches.open(cacheName).then((cache)=>{
+        caches.open(cacheName).then((cache) => {
             return cache.addAll([
                 '/',
                 '/index.html',
@@ -19,7 +19,7 @@ self.addEventListener('install', (eve)=>{
                 '/safari-pinned-tab.svg',
                 '/kitty.mp3'
             ])
-            .then(()=>self.skipWaiting())
+                .then(() => self.skipWaiting())
         })
     );
 });
@@ -28,7 +28,7 @@ self.addEventListener('fetch', (event) => {
 
     console.log(event.request.url);
     event.respondWith(
-        caches.match(event.request).then(function(response) {
+        caches.match(event.request).then(function (response) {
             return response || fetch(event.request);
         })
     );
