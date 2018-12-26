@@ -1,4 +1,4 @@
-const version = '0.0.6';
+const version = '0.0.9';
 const cacheName = `nyaan-${version}`;
 
 self.addEventListener('install', (eve) => {
@@ -17,7 +17,9 @@ self.addEventListener('install', (eve) => {
                 '/meow.json',
                 '/mstile-150x150.png',
                 '/safari-pinned-tab.svg',
-                '/kitty.mp3'
+                '/kitty.mp3',
+                '/icon-192x192.png',
+                '/icon-512x512.png'
             ])
                 .then(() => self.skipWaiting())
         })

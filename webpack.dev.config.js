@@ -71,5 +71,6 @@ module.exports = {
     ],
     devServer: {
         contentBase: './docs',
+        disableHostCheck: true
     }
 };

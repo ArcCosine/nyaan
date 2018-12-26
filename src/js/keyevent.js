@@ -23,6 +23,8 @@ export const keyEvents = (eve) => {
     case 'r':
       if (!eve.ctrlKey) {
         common.reloadImage(eve);
+      } else {
+          return;
       }
       break;
     default:
