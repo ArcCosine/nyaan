@@ -7,6 +7,7 @@ export const keyEvents = (eve) => {
     return; // Do nothing if the event was already processed
   }
   const active = document.querySelector('.active');
+  active.classList.remove('invisible');
   switch (event.key) {
     case 'Enter':
     case 'o':

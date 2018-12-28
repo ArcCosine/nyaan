@@ -2,7 +2,7 @@
 
 /*================ SETTINGS ================*/
 
-$baseColor:rgba(255,255,255,.5);
+$baseColor:rgba(255,255,255,1);
 $baseHeight: 4vh;
 $halfHeight: 2vh;
 $circleT: rgba(255,255,255,.2);
@@ -36,6 +36,28 @@ body {
     line-height: 1.0;
 }
 
+$page-color: (
+  'pageA': #D13438,
+  'pageB': #E81123,
+  'pageC': #107C10,
+  'pageD': #2D7D9A,
+  'pageE': #881798,
+  'pageF': #525E54,
+  'pageG': #5D5A58,
+  'pageH': #FF8C00,
+  'pageI': #038387,
+  'pageJ': #744DA9,
+  'pageK': #C30052,
+  'pageL': #4C4A48,
+);
+
+@each $page, $color in $page-color {
+  .#{$page}-bg {
+    background-color: $color;
+  }
+}
+
+
 header {
     padding: $halfHeight 0;
     img {
@@ -66,20 +88,28 @@ a.text {
     line-height: $baseHeight;
     border: solid 1px $baseColor;
     border-radius: 10px;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    background-color: transparent;
+    transition: all 1s linear 1;
 }
 
 
 a.text:active {
+    background-color: #038387;
     box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
     transform: translateY(2px);
 }
 
-a.active {
-    color: #999 !important;
+a.text:hover{
+    background-color: #038387;
 }
 
 
+a.active {
+    background-color: #038387;
+    &.invisible {
+        background-color: transparent;
+    }
+} 
 
 ul {
     list-style-type: none;
