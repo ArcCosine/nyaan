@@ -96,6 +96,10 @@ module.exports = {
                     return jsonminify(content.toString());
                 }
 
+            },
+            {
+                from: 'src/robots.txt',
+                to : ''
             }
         ])
     ]
