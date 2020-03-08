@@ -15,8 +15,7 @@ const replaceATags = (lang, imageUrl) => {
 const updatePage = (url, isUpdateOption) => {
     // set up language
     const urlhash = location.href.match('#\/([^&]+)\/([^&]+)');
-    const lang = typeof urlhash !== 'undefined' && urlhash[1] ? urlhash[1] : 'ja';
-
+    const lang = urlhash && urlhash[1] && urhash[1].length <= 2 ? urlhash[1] : 'ja';
 
     // update image
     document.querySelector("header img").src = url;
