@@ -1,5 +1,8 @@
-const version = '0.1.1';
+const version = '0.1.2';
 const cacheName = `nyaan-${version}`;
+const CACHE_KEYS = [
+  cacheName
+];
 
 self.addEventListener('install', (eve) => {
     eve.waitUntil(
@@ -24,6 +27,20 @@ self.addEventListener('install', (eve) => {
                 .then(() => self.skipWaiting())
         })
     );
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(keys => {
+      return Promise.all(
+        keys.filter(key => {
+          return !CACHE_KEYS.includes(key);
+        }).map(key => {
+          return caches.delete(key);
+        })
+      );
+    })
+  );
 });
 
 self.addEventListener('fetch', (event) => {
