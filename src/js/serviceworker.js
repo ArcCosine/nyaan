@@ -1,4 +1,4 @@
-const version = '0.0.10';
+const version = '0.1.0';
 const cacheName = `nyaan-${version}`;
 
 self.addEventListener('install', (eve) => {

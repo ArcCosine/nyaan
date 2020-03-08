@@ -1,4 +1,4 @@
-import meowMove from './meowMove.js';
+import meowMove from './meowmove.js';
 import gra from './gra.js';
 
 // click meow image

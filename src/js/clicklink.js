@@ -1,4 +1,4 @@
-import meowMove from "./meowMove.js";
+import meowMove from "./meowmove.js";
 
 // click meow
 const clickLink = eve => {
