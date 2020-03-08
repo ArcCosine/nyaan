@@ -57,16 +57,22 @@ $page-color: (
   }
 }
 
+main {
+    position: relative;
+}
+
 
 header {
     padding: $halfHeight 0;
     img {
         cursor: pointer;
         margin-right: 10px;
+        max-width: 50vw;
+        max-height: 40vh;
     }
 }
 
-section {
+section#meow {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     @include media-query(lg) {
@@ -76,7 +82,6 @@ section {
         grid-template-columns: 1fr;
     }
 }
-
 
 a.text {
     font-size: $baseHeight;
@@ -154,6 +159,42 @@ div#reload.loadend {
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+section#help {
+    display: none;
+    &.show {
+        display:block;
+    }
+    position: absolute;
+    text-align: left;
+    background: rgba(0,0,0,.8);
+    top: 5vh;
+    left: 5vw;
+    width: calc( 90vw - 2em );
+    height: calc( 90vh - 2em );
+    padding: 1em;
+    span {
+    color: #dd0;
+    }
+    table {
+        color: #fff;
+        tr {
+            th {
+                padding: 1em;
+                &:nth-child(1) {
+                    color: #dd0;
+                }
+            }
+
+            td {
+                padding: 1em;
+                &:nth-child(1) {
+                    color: #dd0;
+                }
+            }
+        }
     }
 }
 

@@ -1,4 +1,4 @@
-const version = '0.0.9';
+const version = '0.0.10';
 const cacheName = `nyaan-${version}`;
 
 self.addEventListener('install', (eve) => {
@@ -28,7 +28,7 @@ self.addEventListener('install', (eve) => {
 
 self.addEventListener('fetch', (event) => {
 
-    console.log(event.request.url);
+    //console.log(event.request.url);
     event.respondWith(
         caches.match(event.request).then(function (response) {
             return response || fetch(event.request);

@@ -1,7 +1,5 @@
-import * as common from './common.js';
-
 // key events
-export const mouseEvents = (eve) => {
+const mouseEvent = (eve) => {
 
   if (eve.defaultPrevented) {
     return; // Do nothing if the event was already processed
@@ -9,3 +7,5 @@ export const mouseEvents = (eve) => {
   document.querySelector('.active').classList.add('invisible');
   return;
 };
+
+export default mouseEvent;

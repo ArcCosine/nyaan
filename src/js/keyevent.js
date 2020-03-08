@@ -1,35 +1,42 @@
-import * as common from './common.js';
+import moveNode from './movenode.js';
+import reloadImage from './reloadimage.js';
+import showHelp from './showhelp.js';
 
 // key events
-export const keyEvents = (eve) => {
+const keyEvent = (eve) => {
 
   if (eve.defaultPrevented) {
     return; // Do nothing if the event was already processed
   }
   const active = document.querySelector('.active');
   active.classList.remove('invisible');
-  switch (event.key) {
+  switch (eve.key) {
     case 'Enter':
     case 'o':
       active.click();
       break;
     case 'ArrowDown':
     case 'j':
-      common.moveNode(active, active.nextSibling);
+      moveNode(active, active.nextSibling);
       break;
     case 'ArrowUp':
     case 'k':
-      common.moveNode(active, active.previousSibling);
+      moveNode(active, active.previousSibling);
       break;
     case 'r':
       if (!eve.ctrlKey) {
-        common.reloadImage(eve);
+        reloadImage(eve);
       } else {
           return;
       }
       break;
+    case '?':
+          showHelp(eve);
+          break;
     default:
       return;
   };
   eve.preventDefault();
 };
+
+export default keyEvent;
