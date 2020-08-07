@@ -67,7 +67,6 @@ module.exports = {
         new HtmlWebpackPlugin(htmlOption),
         new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
         new CopyWebpackPlugin({
-
             patterns: [
             {
                 from: 'src/images/',
@@ -76,8 +75,9 @@ module.exports = {
             {
                 from: 'src/js/serviceworker.js',
                 to : '',
-                transform: function(content, path) {
-                    return Terser.minify(content.toString()).code.toString();
+                transform: async content => {
+                    const result = await Terser.minify(content.toString());
+                    return result.code;
                 }
             },
             {
@@ -87,16 +87,12 @@ module.exports = {
             {
                 from: 'src/manifest.json',
                 to : '',
-                transform: function(content, path) {
-                    return jsonminify(content.toString());
-                }
+                transform: content => jsonminify(content.toString())
             },
             {
                 from: 'src/meow.json',
                 to : '',
-                transform: function(content, path) {
-                    return jsonminify(content.toString());
-                }
+                transform: content => jsonminify(content.toString())
 
             },
             {
