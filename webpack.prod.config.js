@@ -75,7 +75,7 @@ module.exports = {
             {
                 from: 'src/js/serviceworker.js',
                 to : '',
-                transform: async content => {
+                transform: async function(content){
                     const result = await Terser.minify(content.toString());
                     return result.code;
                 }
@@ -87,12 +87,16 @@ module.exports = {
             {
                 from: 'src/manifest.json',
                 to : '',
-                transform: content => jsonminify(content.toString())
+                transform: function(content){
+                    return jsonminify(content.toString());
+                }
             },
             {
                 from: 'src/meow.json',
                 to : '',
-                transform: content => jsonminify(content.toString())
+                transform: function(content) {
+                    return jsonminify(content.toString())
+                }
 
             },
             {
