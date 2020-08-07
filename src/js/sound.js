@@ -1,13 +1,11 @@
 const Sound = function() {
     // Copy form the Horn Player.
-
-    const audioSrc = "kitty.mp3";
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     const self = this;
     let source;
     let buffer;
 
-    const loadSound = callback => {
+    const loadSound = async callback => {
         // AudioContext must be resumed after the document received a user gesture to enable audio playback.
         audioCtx.resume();
 
@@ -17,15 +15,11 @@ const Sound = function() {
             return;
         }
 
-        fetch(audioSrc)
-            .then(response => {
-                return response.arrayBuffer();
-            })
-            .then(buffer => {
-                audioCtx.decodeAudioData(buffer, decodedBuffer => {
-                    callback(decodedBuffer);
-                });
-            });
+        const response = await fetch("kitty.mp3")
+        const resBuffer = await response.arrayBuffer()
+        audioCtx.decodeAudioData(resBuffer, decodedBuffer => {
+            callback(decodedBuffer);
+        });
     };
 
     this.start = () => {

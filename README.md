@@ -27,7 +27,7 @@ or
     npm run dev
 
 
-The browser will start up automatically.
+And open [http://localhost:8080/](http://localhost:8080/).
 As live reloading,please modify and save the source directly.
 
 

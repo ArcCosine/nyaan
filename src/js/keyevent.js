@@ -33,6 +33,11 @@ const keyEvent = (eve) => {
     case '?':
           showHelp(eve);
           break;
+    case '[':
+          if( eve.ctrlKey ){
+            showHelp(eve);
+          }
+          break;
     default:
       return;
   };

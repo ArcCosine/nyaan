@@ -1,40 +1,38 @@
-const path = require('path');
+const path = require("path");
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const htmlOption = {
-    template: './src/html/index.html',
-    filename: 'index.html',
-    inlineSource: '.(js|css)$'
+    template: "./src/html/index.html",
+    filename: "index.html",
+    inlineSource: ".(js|css)$"
 };
 
 module.exports = {
-    mode: 'development',
+    mode: "development",
     entry: {
-        main: [
-            './src/js/main.js',
-        ]
+        main: ["./src/js/main.js"]
     },
     output: {
-        filename: '[name].js',
-        path: path.join(__dirname, 'docs/')
+        filename: "[name].js",
+        path: path.join(__dirname, "docs/")
     },
     module: {
         rules: [
             {
-                test: /\.scss/ ,
+                test: /\.scss/,
                 use: [
-                    'style-loader',
+                    "style-loader",
                     {
-                        loader: 'css-loader',
+                        loader: "css-loader",
                         options: {
                             sourceMap: true
                         }
                     },
                     {
-                        loader: 'sass-loader',
+                        loader: "sass-loader",
                         options: {
                             sourceMap: true
                         }
@@ -43,34 +41,37 @@ module.exports = {
             }
         ]
     },
-    plugins :[
+    plugins: [
         new HtmlWebpackPlugin(htmlOption),
-        new HtmlWebpackInlineSourcePlugin(),
-        new CopyWebpackPlugin([
-            {
-                from: 'src/images/',
-                to : ''
-            },
-            {
-                from: 'src/js/serviceworker.js',
-                to : ''
-            },
-            {
-                from: 'src/sound/',
-                to : ''
-            },
-            {
-                from: 'src/manifest.json',
-                to : ''
-            },
-            {
-                from: 'src/meow.json',
-                to : ''
-            }
-        ])
+        new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: "src/images/",
+                    to: ""
+                },
+                {
+                    from: "src/js/serviceworker.js",
+                    to: ""
+                },
+                {
+                    from: "src/sound/",
+                    to: ""
+                },
+                {
+                    from: "src/manifest.json",
+                    to: ""
+                },
+                {
+                    from: "src/meow.json",
+                    to: ""
+                }
+            ]
+        })
     ],
     devServer: {
-        contentBase: './docs',
-        disableHostCheck: true
+        contentBase: "./docs",
+        disableHostCheck: true,
+        watchContentBase: true
     }
 };

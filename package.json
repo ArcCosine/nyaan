@@ -1,27 +1,27 @@
 {
   "dependencies": {},
   "scripts": {
-    "dev": "npx webpack-dev-server --config webpack.dev.config.js --open",
+    "dev": "npx webpack-dev-server --config webpack.dev.config.js",
     "build": "npx webpack --config webpack.prod.config.js --mode production",
     "start:lambda": "netlify-lambda serve src/lambda",
     "build:lambda": "netlify-lambda build src/lambda"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^6.0.2",
-    "css-loader": "^3.5.3",
+    "copy-webpack-plugin": "^6.0.3",
+    "css-loader": "^4.2.1",
     "fibers": "^5.0.0",
-    "html-webpack-inline-source-plugin": "^0.0.10",
+    "html-webpack-inline-source-plugin": "^1.0.0-beta.2",
     "html-webpack-plugin": "^4.3.0",
     "jsonminify": "^0.4.1",
-    "netlify-lambda": "^1.6.3",
+    "netlify-lambda": "^2.0.1",
     "node-sass": "^4.14.1",
-    "sass": "^1.26.8",
-    "sass-loader": "^8.0.2",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.3",
     "style-loader": "^1.2.1",
-    "terser": "^4.7.0",
-    "terser-webpack-plugin": "^3.0.3",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
+    "terser": "^5.0.0",
+    "terser-webpack-plugin": "^4.0.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   }
 }

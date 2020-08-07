@@ -65,8 +65,10 @@ module.exports = {
     },
     plugins :[
         new HtmlWebpackPlugin(htmlOption),
-        new HtmlWebpackInlineSourcePlugin(),
-        new CopyWebpackPlugin([
+        new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
+        new CopyWebpackPlugin({
+
+            patterns: [
             {
                 from: 'src/images/',
                 to : ''
@@ -101,6 +103,6 @@ module.exports = {
                 from: 'src/robots.txt',
                 to : ''
             }
-        ])
+        ]})
     ]
 };

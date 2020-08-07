@@ -11,7 +11,7 @@ import clickImage from "./clickimage.js";
 import "./pwa.js";
 
 // entry point
-const load = () => {
+const load = async () => {
     const backColors = [
         "pageA-bg",
         "pageB-bg",
@@ -29,46 +29,42 @@ const load = () => {
     document.body.classList.add(gra(backColors));
 
     // load meow
-    fetch("meow.json")
-        .then(response => {
-            return response.json();
-        })
-        .then(jsondata => {
-            const match = location.href.match("#/(.+)?/");
-            const lang = match ? match[1] : "ja";
-            const list =
-                typeof jsondata[lang] !== "undefined"
-                    ? jsondata[lang]
-                    : jsondata.ja;
-            list.sort(() => {
-                return Math.random() - 0.5;
-            }).forEach(renderMeow);
-            // event bind
-            document
-                .querySelector("header img")
-                .addEventListener("click", clickImage, false);
-            document.addEventListener("keydown", keyEvent, false);
-            document.addEventListener("mousemove", mouseEvent, false);
-            document
-                .getElementById("reload")
-                .addEventListener("click", reloadImage, false);
+    const response = await fetch("meow.json");
+    const jsondata = await response.json();
+    const match = location.href.match("#/(.+)?/");
+    const lang = match ? match[1] : "ja";
+    const list =
+        typeof jsondata[lang] !== "undefined"
+        ? jsondata[lang]
+        : jsondata.ja;
+    list.sort(() => {
+        return Math.random() - 0.5;
+    }).forEach(renderMeow);
+    // event bind
+    document
+        .querySelector("header img")
+        .addEventListener("click", clickImage, false);
+    document.addEventListener("keydown", keyEvent, false);
+    document.addEventListener("mousemove", mouseEvent, false);
+    document
+        .getElementById("reload-button")
+        .addEventListener("click", reloadImage, false);
 
-            //create hash
-            const imghash = location.href.match("#/([^&]+)/([^&]+)");
-            if (imghash) {
-                const bytes = new Uint8Array(
-                    imghash[2].match(/.{1,2}/g).map(v => parseInt(v, 16))
-                );
-                const meta = document.querySelector(
-                    'meta[property="og:image"]'
-                );
-                const imageUrl = new TextDecoder().decode(bytes);
-                meta.setAttribute("content", imageUrl);
-                loadCat(imageUrl);
-            } else {
-                loadCat();
-            }
-        });
+    //create hash
+    const imghash = location.href.match("#/([^&]+)/([^&]+)");
+    if (imghash) {
+        const bytes = new Uint8Array(
+        imghash[2].match(/.{1,2}/g).map(v => parseInt(v, 16))
+    );
+        const meta = document.querySelector(
+            'meta[property="og:image"]'
+        );
+        const imageUrl = new TextDecoder().decode(bytes);
+        meta.setAttribute("content", imageUrl);
+        loadCat(imageUrl);
+    } else {
+        loadCat();
+    }
 };
 
 // Entry Point

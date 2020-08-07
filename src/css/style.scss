@@ -69,6 +69,8 @@ header {
         margin-right: 10px;
         max-width: 50vw;
         max-height: 40vh;
+        display: block;
+        margin: 0px auto 1em;
     }
 }
 
@@ -127,30 +129,48 @@ ul {
     }
 }
 
-div#reload {
-    display: inline-block;
-    width: $halfHeight;
-    height: $halfHeight;
-    margin: 0px;
-    font-size: 10px;
+button {
     position: relative;
-    text-indent: -9999em;
-    border: 0.5em solid $circleT;
-    border-left: 0.5em solid $circleC;
-    transform: translateZ(0);
-    animation: load8 1.1s infinite linear;    
-    border-radius: 50%;
-    &::after {
+    border: 1px solid #4CAF50;
+    border-radius: 5px;
+    outline: none;
+    padding: .5em 1em;
+    font-size: 16px;
+    font-weight: 600;
+    background: #4CAF50;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.5);
+    color: #000;
+
+    div#reload {
+        display: inline-block;
+        vertical-align: middle;
+        width: .7em;
+        height: .7em;
+        margin: 0px 0.5em 0px 0px;
+        position: relative;
+        border: 0.3em solid $circleT;
+        border-left: 0.3em solid $circleC;
+        transform: translateZ(0);
+        animation: load8 1.1s infinite linear;    
         border-radius: 50%;
+        &::after {
+            border-radius: 50%;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+        -webkit-tap-highlight-color: transparent;
     }
-    &:hover {
-        cursor: pointer;
+    &:hover,
+    &:active,
+    &:focus{
+        outline: none;
+        background: #4CAF50;
     }
-    -webkit-tap-highlight-color: transparent;
 }
 
 div#reload.loadend {
-    border: 0.5em solid $circleC;
+    border: 0.3em solid $circleC;
 }
 
 @keyframes load8 {
@@ -167,9 +187,10 @@ section#help {
     &.show {
         display:block;
     }
-    position: absolute;
+    position: fixed;
     text-align: left;
     background: rgba(0,0,0,.8);
+    border-radius: 25%;
     top: 5vh;
     left: 5vw;
     width: calc( 90vw - 2em );
