@@ -156,9 +156,6 @@ button {
         &::after {
             border-radius: 50%;
         }
-        &:hover {
-            cursor: pointer;
-        }
         -webkit-tap-highlight-color: transparent;
     }
     &:hover,
@@ -166,6 +163,9 @@ button {
     &:focus{
         outline: none;
         background: #4CAF50;
+    }
+    &:hover {
+        cursor: pointer;
     }
 }
 
