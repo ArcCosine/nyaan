@@ -1,4 +1,4 @@
-const version = '0.1.3';
+const version = '0.1.4';
 const cacheName = `nyaan-${version}`;
 const CACHE_KEYS = [
   cacheName
@@ -16,6 +16,7 @@ self.addEventListener('install', (eve) => {
                 '/browserconfig.xml',
                 '/favicon-16x16.png',
                 '/favicon-32x32.png',
+                '/maskable_icon.png',
                 '/favicon.ico',
                 '/meow.json',
                 '/mstile-150x150.png',
