@@ -1,8 +1,8 @@
 {
   "dependencies": {},
   "scripts": {
-    "dev": "npx webpack-dev-server --config webpack.dev.config.js",
-    "build": "npx webpack --config webpack.prod.config.js --mode production",
+    "dev": "webpack-dev-server --config webpack.dev.config.js",
+    "build": "webpack --config webpack.prod.config.js --mode production",
     "start:lambda": "netlify-lambda serve src/lambda",
     "build:lambda": "netlify-lambda build src/lambda"
   },
