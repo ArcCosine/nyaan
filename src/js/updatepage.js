@@ -18,7 +18,7 @@ const updatePage = (url, isUpdateOption) => {
     const lang = urlhash && urlhash[1] && urlhash[1].length <= 2 ? urlhash[1] : 'ja';
 
     // update image
-    document.querySelector("header img").src = url;
+    document.querySelector("header div img").src = url;
 
     // getImage url
     const hasImageUrl = Array.from(new TextEncoder().encode(url))

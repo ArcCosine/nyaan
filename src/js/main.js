@@ -42,7 +42,7 @@ const load = async () => {
     }).forEach(renderMeow);
     // event bind
     document
-        .querySelector("header img")
+        .querySelector("header div img")
         .addEventListener("click", clickImage, false);
     document.addEventListener("keydown", keyEvent, false);
     document.addEventListener("mousemove", mouseEvent, false);
