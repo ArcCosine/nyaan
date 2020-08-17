@@ -6,6 +6,8 @@ import loadCat from "./loadcat.js";
 import renderMeow from "./rendermeow.js";
 import reloadImage from "./reloadimage.js";
 import clickImage from "./clickimage.js";
+import getImageUrl from "./getImageUrl.js";
+import getLang from "./getLang.js";
 
 // for pwa
 import "./pwa.js";
@@ -31,8 +33,7 @@ const load = async () => {
     // load meow
     const response = await fetch("meow.json");
     const jsondata = await response.json();
-    const match = location.href.match("#/(.+)?/");
-    const lang = match ? match[1] : "ja";
+    const lang = getLang();
     const list =
         typeof jsondata[lang] !== "undefined"
         ? jsondata[lang]
@@ -51,20 +52,7 @@ const load = async () => {
         .addEventListener("click", reloadImage, false);
 
     //create hash
-    const imghash = location.href.match("#/([^&]+)/([^&]+)");
-    if (imghash) {
-        const bytes = new Uint8Array(
-        imghash[2].match(/.{1,2}/g).map(v => parseInt(v, 16))
-    );
-        const meta = document.querySelector(
-            'meta[property="og:image"]'
-        );
-        const imageUrl = new TextDecoder().decode(bytes);
-        meta.setAttribute("content", imageUrl);
-        loadCat(imageUrl);
-    } else {
-        loadCat();
-    }
+    loadCat();
 };
 
 // Entry Point
