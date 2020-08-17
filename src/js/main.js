@@ -6,7 +6,6 @@ import loadCat from "./loadcat.js";
 import renderMeow from "./rendermeow.js";
 import reloadImage from "./reloadimage.js";
 import clickImage from "./clickimage.js";
-import getImageUrl from "./getImageUrl.js";
 import getLang from "./getLang.js";
 
 // for pwa
@@ -41,6 +40,7 @@ const load = async () => {
     list.sort(() => {
         return Math.random() - 0.5;
     }).forEach(renderMeow);
+
     // event bind
     document
         .querySelector("header div img")

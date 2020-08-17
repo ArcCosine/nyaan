@@ -1,5 +1,7 @@
 # What's this?
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ca4ae3ec-8d7a-4157-ae71-b7289b35e759/deploy-status)](https://app.netlify.com/sites/reverent-meitner-89c100/deploys)
+
 [Meow!](https://nyaan.work/#!en/)
 
 # Serious commentary
@@ -49,6 +51,8 @@ Please select master/docs in githubpages setting.
 Replay [@ArcCosine](https://twitter.com/ArcCosine).
 
 # これは何？
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ca4ae3ec-8d7a-4157-ae71-b7289b35e759/deploy-status)](https://app.netlify.com/sites/reverent-meitner-89c100/deploys)
 
 [にゃ～ん！](https://nyaan.work/#!ja/)
 

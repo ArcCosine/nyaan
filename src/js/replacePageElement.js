@@ -16,6 +16,9 @@ const replacePageElement = url => {
         .setAttribute("content", url);
     history.replaceState(null, null, `/#!${lang}/${imageHashUrl}`);
 
+    // update prerender
+    window.prerenderReady = true;
+
     const fixUrl = encodeURIComponent(
         `https://nyaan.work/#!${lang}/${imageHashUrl}`
     );
