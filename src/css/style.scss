@@ -90,6 +90,8 @@ section#meow {
     @include media-query(sm){
         grid-template-columns: 1fr;
     }
+    max-width: 1000px;
+    margin: 0px auto;
 }
 
 a.text {
