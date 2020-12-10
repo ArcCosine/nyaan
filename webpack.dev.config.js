@@ -1,7 +1,7 @@
 const path = require("path");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
+const InlineChunkHtmlPlugin  = require("inline-chunk-html-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const htmlOption = {
@@ -43,7 +43,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin(htmlOption),
-        new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
+        new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime/]),
         new CopyWebpackPlugin({
             patterns: [
                 {
