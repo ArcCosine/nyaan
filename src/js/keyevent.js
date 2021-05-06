@@ -1,6 +1,7 @@
 import moveNode from './movenode.js';
 import reloadImage from './reloadimage.js';
 import showHelp from './showhelp.js';
+import switchLanguage from './switchLanguage.js';
 
 // key events
 const keyEvent = (eve) => {
@@ -17,10 +18,14 @@ const keyEvent = (eve) => {
       break;
     case 'ArrowDown':
     case 'j':
+    case 'ArrowRight':
+    case 'l':
       moveNode(active, active.nextSibling);
       break;
     case 'ArrowUp':
     case 'k':
+    case 'ArrowLeft':
+    case 'h':
       moveNode(active, active.previousSibling);
       break;
     case 'r':
@@ -37,6 +42,9 @@ const keyEvent = (eve) => {
           if( eve.ctrlKey ){
             showHelp(eve);
           }
+          break;
+    case 's':
+          switchLanguage();
           break;
     default:
       return;

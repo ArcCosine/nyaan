@@ -12,7 +12,7 @@ $circleC: rgba(255,255,255,.8);
 /*================ Mixins ================*/
 
 $breakpoints: (
-'sm': 'screen and (max-width: 400px)',
+'sm': 'screen and (max-width: 414px)',
 'md': 'screen and (max-width: 768px)',
 'lg': 'screen and (max-width: 1000px)',
 'xl': 'screen and (max-width: 1200px)',
@@ -37,18 +37,7 @@ body {
 }
 
 $page-color: (
-  'pageA': #D13438,
-  'pageB': #E81123,
-  'pageC': #107C10,
-  'pageD': #2D7D9A,
-  'pageE': #881798,
-  'pageF': #525E54,
   'pageG': #5D5A58,
-  'pageH': #FF8C00,
-  'pageI': #038387,
-  'pageJ': #744DA9,
-  'pageK': #C30052,
-  'pageL': #4C4A48,
 );
 
 @each $page, $color in $page-color {
@@ -63,12 +52,16 @@ main {
 
 
 header {
-    padding: $halfHeight 0;
+    padding: $baseHeight 0 $halfHeight;
     .meow-image {
         cursor: pointer;
         margin: 0px auto 1em;
-        width: 250px;
-        height: 250px;
+        width: 500px;
+        height: 500px;
+        @include media-query(sm){
+            width: 320px;
+            height: 320px;
+        }
         border: 10px solid #fff;
         box-shadow: 1px 1px 2px #e6e6e6;
         img {
@@ -97,35 +90,43 @@ section#meow {
 a.text {
     font-size: $baseHeight;
     text-decoration: none;
+    text-align: left;
     color: $baseColor;
     display: block;
     margin: 0px 10px 10px 10px;
     padding: $baseHeight 0;
     line-height: $baseHeight;
-    border: solid 1px $baseColor;
-    border-radius: 10px;
-    background-color: transparent;
     transition: all 1s linear 1;
-}
-
-
-a.text:active {
-    background-color: #038387;
-    box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
-    transform: translateY(2px);
-}
-
-a.text:hover{
-    background-color: #038387;
-}
-
-
-a.active {
-    background-color: #038387;
-    &.invisible {
-        background-color: transparent;
+    span {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        background: #55acee;
+        border-radius:  1em;
+        padding: .5em;
+        @include media-query(sm){
+        margin-left: 2.5em;
     }
-} 
+        margin-right: 1em;
+        svg {
+            .fill {
+                fill:  #fff;
+            }
+        }
+    }
+}
+
+a.text.active {
+    color: #333333;
+}
+
+.caution-text {
+    font-size: $halfHeight;
+    margin: 2em 2em .5em;
+    color:  #fff;
+    line-height:  1.5;
+}
+
 
 ul {
     list-style-type: none;
@@ -234,5 +235,5 @@ footer {
     a {
         color: $baseColor;
     }
-    margin: 2em 0;
+    margin: 2em 1em;
 }

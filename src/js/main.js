@@ -1,7 +1,7 @@
 import "../css/style.scss";
 import gra from "./gra.js";
 import keyEvent from "./keyevent.js";
-import mouseEvent from "./mouseevent.js";
+//import mouseEvent from "./mouseevent.js";
 import loadCat from "./loadcat.js";
 import renderMeow from "./rendermeow.js";
 import reloadImage from "./reloadimage.js";
@@ -9,6 +9,7 @@ import clickImage from "./clickimage.js";
 import getLang from "./getLang.js";
 import getImageUrl from "./getImageUrl.js";
 import replacePageElement from "./replacePageElement.js";
+import switchLanguage from "./switchLanguage.js";
 
 // for pwa
 import "./pwa.js";
@@ -55,10 +56,11 @@ const load = async () => {
         .querySelector("header div img")
         .addEventListener("click", clickImage, false);
     document.addEventListener("keydown", keyEvent, false);
-    document.addEventListener("mousemove", mouseEvent, false);
+    //document.addEventListener("mousemove", mouseEvent, false);
     document
         .getElementById("reload-button")
         .addEventListener("click", reloadImage, false);
+    document.getElementById("switch-language").addEventListener("click", switchLanguage, false);
 
     //create hash
     loadCat();
