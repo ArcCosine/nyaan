@@ -11,6 +11,7 @@ self.addEventListener('install', (eve) => {
                 '/',
                 '/index.html',
                 '/basecat.png',
+                '/witch-cat.png',
                 '/android-chrome-96x96.png',
                 '/apple-touch-icon.png',
                 '/browserconfig.xml',
