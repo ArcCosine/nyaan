@@ -5,7 +5,7 @@ import getLang from './getLang.js';
 const reloadImage = (eve) => {
     eve.preventDefault();
     document.getElementById('reload').classList.remove('loadend');
-    history.replaceState(null, null, `/#!${getLang()}/`)
+    history.replaceState(null, null, `/#!/${getLang()}/`)
     loadCat();
 };
 

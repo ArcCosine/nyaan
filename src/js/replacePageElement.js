@@ -14,13 +14,13 @@ const replacePageElement = url => {
     document
         .querySelector('meta[property="og:image"]')
         .setAttribute("content", url);
-    history.replaceState(null, null, `/#!${lang}/${imageHashUrl}`);
+    history.replaceState(null, null, `/#!/${lang}/${imageHashUrl}`);
 
     // update prerender
     window.prerenderReady = true;
 
     const fixUrl = encodeURIComponent(
-        `https://nyaan.work/#!${lang}/${imageHashUrl}`
+        `https://nyaan.work/#!/${lang}/${imageHashUrl}`
     );
 
     Array.from(document.querySelectorAll("section a.text")).map(v =>
