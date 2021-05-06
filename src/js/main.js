@@ -7,12 +7,21 @@ import renderMeow from "./rendermeow.js";
 import reloadImage from "./reloadimage.js";
 import clickImage from "./clickimage.js";
 import getLang from "./getLang.js";
+import getImageUrl from "./getImageUrl.js";
+import replacePageElement from "./replacePageElement.js";
 
 // for pwa
 import "./pwa.js";
 
 // entry point
 const load = async () => {
+    // update 
+    const imageUrl = getImageUrl();
+
+    if( imageUrl !== "" ){
+        replacePageElement(imageUrl);
+    }
+
     const backColors = [
         "pageA-bg",
         "pageB-bg",
