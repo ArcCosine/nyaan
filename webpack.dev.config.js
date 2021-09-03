@@ -1,23 +1,23 @@
 const path = require("path");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const InlineChunkHtmlPlugin  = require("inline-chunk-html-plugin");
+const InlineChunkHtmlPlugin = require("inline-chunk-html-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const htmlOption = {
     template: "./src/html/index.html",
     filename: "index.html",
-    inlineSource: ".(js|css)$"
+    inlineSource: ".(js|css)$",
 };
 
 module.exports = {
     mode: "development",
     entry: {
-        main: ["./src/js/main.js"]
+        main: ["./src/js/main.js"],
     },
     output: {
         filename: "[name].js",
-        path: path.join(__dirname, "docs/")
+        path: path.join(__dirname, "docs/"),
     },
     module: {
         rules: [
@@ -28,18 +28,18 @@ module.exports = {
                     {
                         loader: "css-loader",
                         options: {
-                            sourceMap: true
-                        }
+                            sourceMap: true,
+                        },
                     },
                     {
                         loader: "sass-loader",
                         options: {
-                            sourceMap: true
-                        }
-                    }
-                ]
-            }
-        ]
+                            sourceMap: true,
+                        },
+                    },
+                ],
+            },
+        ],
     },
     plugins: [
         new HtmlWebpackPlugin(htmlOption),
@@ -48,30 +48,30 @@ module.exports = {
             patterns: [
                 {
                     from: "src/images/",
-                    to: ""
+                    to: "",
                 },
                 {
                     from: "src/js/serviceworker.js",
-                    to: ""
+                    to: "",
                 },
                 {
                     from: "src/sound/",
-                    to: ""
+                    to: "",
                 },
                 {
                     from: "src/manifest.json",
-                    to: ""
+                    to: "",
                 },
                 {
                     from: "src/meow.json",
-                    to: ""
-                }
-            ]
-        })
+                    to: "",
+                },
+            ],
+        }),
     ],
     devServer: {
-        contentBase: "./docs",
-        disableHostCheck: true,
-        watchContentBase: true
-    }
+        static: {
+            directory: path.join(__dirname, "./docs"),
+        },
+    },
 };
