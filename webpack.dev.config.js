@@ -55,10 +55,6 @@ module.exports = {
                     to: "",
                 },
                 {
-                    from: "src/sound/",
-                    to: "",
-                },
-                {
                     from: "src/manifest.json",
                     to: "",
                 },

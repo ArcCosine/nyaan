@@ -1,9 +1,7 @@
-import meowMove from "./meowmove.js";
-
 // click meow
-const clickLink = eve => {
+const clickLink = (eve) => {
     eve.preventDefault();
-    meowMove(eve.target.href);
+    window.top.location.href = eve.target.href;
 };
 
 export default clickLink;

@@ -1,7 +1,6 @@
 import "../css/style.scss";
 import gra from "./gra.js";
 import keyEvent from "./keyevent.js";
-//import mouseEvent from "./mouseevent.js";
 import loadCat from "./loadcat.js";
 import renderMeow from "./rendermeow.js";
 import reloadImage from "./reloadimage.js";
@@ -56,7 +55,6 @@ const load = async () => {
         .querySelector("header div img")
         .addEventListener("click", clickImage, false);
     document.addEventListener("keydown", keyEvent, false);
-    //document.addEventListener("mousemove", mouseEvent, false);
     document
         .getElementById("reload-button")
         .addEventListener("click", reloadImage, false);

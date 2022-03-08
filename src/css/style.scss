@@ -2,22 +2,20 @@
 
 /*================ SETTINGS ================*/
 
-$baseColor:rgba(255,255,255,1);
+$baseColor: rgba(255, 255, 255, 1);
 $baseHeight: 4vh;
 $halfHeight: 2vh;
-$circleT: rgba(255,255,255,.2);
-$circleC: rgba(255,255,255,.8);
-
+$circleT: rgba(255, 255, 255, 0.2);
+$circleC: rgba(255, 255, 255, 0.8);
 
 /*================ Mixins ================*/
 
 $breakpoints: (
-'sm': 'screen and (max-width: 414px)',
-'md': 'screen and (max-width: 768px)',
-'lg': 'screen and (max-width: 1000px)',
-'xl': 'screen and (max-width: 1200px)',
+    "sm": "screen and (max-width: 414px)",
+    "md": "screen and (max-width: 768px)",
+    "lg": "screen and (max-width: 1000px)",
+    "xl": "screen and (max-width: 1200px)",
 ) !default;
-
 
 @mixin media-query($breakpoint: md) {
     @media #{map-get($breakpoints, $breakpoint)} {
@@ -25,31 +23,29 @@ $breakpoints: (
     }
 }
 
-
 /*================ COMMON ================*/
 
 body {
     text-align: center;
-    background: #7E735F;
+    background: #7e735f;
     padding: 0;
     margin: 0;
-    line-height: 1.0;
+    line-height: 1;
 }
 
 $page-color: (
-  'pageG': #5D5A58,
+    "pageG": #5d5a58,
 );
 
 @each $page, $color in $page-color {
-  .#{$page}-bg {
-    background-color: $color;
-  }
+    .#{$page}-bg {
+        background-color: $color;
+    }
 }
 
 main {
     position: relative;
 }
-
 
 header {
     padding: $baseHeight 0 $halfHeight;
@@ -58,7 +54,7 @@ header {
         margin: 0px auto 1em;
         width: 500px;
         height: 500px;
-        @include media-query(sm){
+        @include media-query(sm) {
             width: 320px;
             height: 320px;
         }
@@ -80,7 +76,7 @@ section#meow {
     @include media-query(lg) {
         grid-template-columns: 1fr 1fr;
     }
-    @include media-query(sm){
+    @include media-query(sm) {
         grid-template-columns: 1fr;
     }
     max-width: 1000px;
@@ -102,15 +98,15 @@ a.text {
         width: 1em;
         height: 1em;
         background: #55acee;
-        border-radius:  1em;
-        padding: .5em;
-        @include media-query(sm){
-        margin-left: 2.5em;
-    }
+        border-radius: 1em;
+        padding: 0.5em;
+        @include media-query(sm) {
+            margin-left: 2.5em;
+        }
         margin-right: 1em;
         svg {
             .fill {
-                fill:  #fff;
+                fill: #fff;
             }
         }
     }
@@ -122,11 +118,10 @@ a.text.active {
 
 .caution-text {
     font-size: $halfHeight;
-    margin: 2em 2em .5em;
-    color:  #fff;
-    line-height:  1.5;
+    margin: 2em 2em 0.5em;
+    color: #fff;
+    line-height: 1.5;
 }
-
 
 ul {
     list-style-type: none;
@@ -141,53 +136,56 @@ ul {
 
 button {
     position: relative;
-    border: 1px solid #4CAF50;
+    border: 1px solid #4caf50;
     border-radius: 5px;
     outline: none;
-    padding: .5em 1em;
+    padding: 0.5em 1em;
     font-size: 16px;
     font-weight: 600;
-    background: #4CAF50;
-    box-shadow: 1px 1px 1px rgba(0,0,0,.5);
+    background: #4caf50;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
     color: #000;
-
-    div#reload {
-        display: inline-block;
-        vertical-align: middle;
-        width: .7em;
-        height: .7em;
-        margin: 0px 0.5em 0px 0px;
-        position: relative;
-        border: 0.3em solid $circleT;
-        border-left: 0.3em solid $circleC;
-        transform: translateZ(0);
-        animation: load8 1.1s infinite linear;    
-        border-radius: 50%;
-        &::after {
-            border-radius: 50%;
-        }
-        -webkit-tap-highlight-color: transparent;
-    }
-    &:hover,
-    &:active,
-    &:focus{
-        outline: none;
-        background: #4CAF50;
-    }
-    &:hover {
-        cursor: pointer;
-    }
+}
+button:hover {
+    background: #59b1eb;
 }
 
-div#reload.loadend {
-    border: 0.3em solid $circleC;
+button:disabled {
+    cursor: wait;
+    background: #dddddd;
+}
+
+div#reload {
+    display: none;
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 4px solid transparent;
+    border-top-color: #000;
+    border-radius: 50%;
+}
+
+div#reload.start {
+    display: block;
+    animation-name: load8;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-play-state: running;
 }
 
 @keyframes load8 {
-    0% {
+    from {
         transform: rotate(0deg);
     }
-    100% {
+    to {
         transform: rotate(360deg);
     }
 }
@@ -195,19 +193,19 @@ div#reload.loadend {
 section#help {
     display: none;
     &.show {
-        display:block;
+        display: block;
     }
     position: fixed;
     text-align: left;
-    background: rgba(0,0,0,.8);
+    background: rgba(0, 0, 0, 0.8);
     border-radius: 1em;
     top: 5vh;
     left: 5vw;
-    width: calc( 90vw - 2em );
-    height: calc( 90vh - 2em );
+    width: calc(90vw - 2em);
+    height: calc(90vh - 2em);
     padding: 1em;
     span {
-    color: #dd0;
+        color: #dd0;
     }
     table {
         color: #fff;
@@ -228,7 +226,6 @@ section#help {
         }
     }
 }
-
 
 footer {
     color: $baseColor;

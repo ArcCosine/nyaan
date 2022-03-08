@@ -81,10 +81,6 @@ module.exports = {
                 }
             },
             {
-                from: 'src/sound/',
-                to : ''
-            },
-            {
                 from: 'src/manifest.json',
                 to : '',
                 transform: function(content){

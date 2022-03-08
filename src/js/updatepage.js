@@ -10,7 +10,8 @@ const updatePage = (url) => {
     replacePageElement(url);
 
     // stop load animation
-    document.getElementById("reload").classList.add("loadend");
+    document.getElementById("reload").classList.remove("start");
+    document.getElementById("reload-button").disabled = false;
 
 
 };
