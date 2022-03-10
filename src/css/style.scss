@@ -84,7 +84,7 @@ section#meow {
 }
 
 a.text {
-    font-size: $baseHeight;
+    font-size: 2em;
     text-decoration: none;
     text-align: left;
     color: $baseColor;
@@ -92,7 +92,6 @@ a.text {
     margin: 0px 10px 10px 10px;
     padding: $baseHeight 0;
     line-height: $baseHeight;
-    transition: all 1s linear 1;
     span {
         display: inline-block;
         width: 1em;
@@ -101,7 +100,7 @@ a.text {
         border-radius: 1em;
         padding: 0.5em;
         @include media-query(sm) {
-            margin-left: 2.5em;
+            margin-left: calc($halfHeight + 1em);
         }
         margin-right: 1em;
         svg {
@@ -140,6 +139,7 @@ button {
     border-radius: 5px;
     outline: none;
     padding: 0.5em 1em;
+    line-height: 16px;
     font-size: 16px;
     font-weight: 600;
     background: #4caf50;
@@ -147,6 +147,7 @@ button {
     cursor: pointer;
     color: #000;
 }
+
 button:hover {
     background: #59b1eb;
 }
@@ -188,6 +189,12 @@ div#reload.start {
     to {
         transform: rotate(360deg);
     }
+}
+
+#switch-language img {
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
 }
 
 section#help {

@@ -1,4 +1,4 @@
-const version = '0.3.3';
+const version = '0.3.4';
 const cacheName = `nyaan-${version}`;
 const CACHE_KEYS = [
   cacheName
@@ -12,6 +12,7 @@ self.addEventListener('install', (eve) => {
                 '/index.html',
                 '/basecat.png',
                 '/witch-cat.png',
+                '/language.png',
                 '/android-chrome-96x96.png',
                 '/apple-touch-icon.png',
                 '/browserconfig.xml',

@@ -20,6 +20,7 @@ document.querySelector('section').innerHTML ='';
         return Math.random() - 0.5;
     }).forEach(renderMeow);
 
+    document.querySelector("#switch-language span").textContent = lang;
 
     history.replaceState(null, null, `/#!/${lang}/${imageHashUrl}`);
 };
