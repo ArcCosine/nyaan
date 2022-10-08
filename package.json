@@ -13,7 +13,7 @@
     "inline-chunk-html-plugin": "^1.1.1",
     "jsonminify": "^0.4.2",
     "netlify-lambda": "^2.0.15",
-    "node-sass": "^7.0.1",
+    "node-sass": "^7.0.3",
     "sass": "^1.54.3",
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",
