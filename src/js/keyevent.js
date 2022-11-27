@@ -38,6 +38,12 @@ const keyEvent = (eve) => {
     case '?':
           showHelp(eve);
           break;
+    case 'Escape':
+          const help = document.getElementById('help');
+          if( help.classList.contains('show') ){
+            showHelp(eve);
+          }
+          break;
     case '[':
           if( eve.ctrlKey ){
             showHelp(eve);
