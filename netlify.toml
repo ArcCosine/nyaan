@@ -1,7 +1,6 @@
 [build]
-  command = "npm run build && npm run build:lambda"
+  command = "npm run build"
   pubilsh = "public"
-  functions = "./lambda"
 
 [[redirects]]
   from = "/*"
