@@ -11,32 +11,20 @@ You can use keyboard short cuts.
 
 # How to install
 
-    yarn install
-
-or
-
-    npm install
+    bun install
 
 # How to develop
 
-    yarn run dev
-
-or
-
-    npm run dev
+    bun run dev
 
 And open [http://localhost:8080/](http://localhost:8080/).
 As live reloading,please modify and save the source directly.
 
 # Build script.
 
-    yarn run build
+    bun run build
 
-or
-
-    npm run build
-
-The build files is expanded to the dist directory.
+The build files is expanded to the docs directory.
 
 # How to relase.
 
@@ -64,29 +52,17 @@ Replay [@ArcCosine](https://twitter.com/ArcCosine).
 
 # 開発する前の初期化
 
-    yarn install
-
-or
-
-    npm install
+    bun install
 
 # 開発をする際
 
-    yarn run dev
-
-or
-
-    npm run dev
+    bun run dev
 
 自動圧縮＆ライブリロード便利ですよね。
 
 # 単なるビルド
 
-    yarn run build
-
-or
-
-    npm run build
+    bun run build
 
 # リリース作業
 

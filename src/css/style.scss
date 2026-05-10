@@ -1,3 +1,4 @@
+@use "sass:map";
 @charset "UTF-8";
 
 /*================ SETTINGS ================*/
@@ -18,7 +19,7 @@ $breakpoints: (
 ) !default;
 
 @mixin media-query($breakpoint: md) {
-    @media #{map-get($breakpoints, $breakpoint)} {
+    @media #{map.get($breakpoints, $breakpoint)} {
         @content;
     }
 }

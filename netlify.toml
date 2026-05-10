@@ -1,6 +1,7 @@
 [build]
-  command = "npm run build"
-  pubilsh = "public"
+  command = "bun run build"
+  publish = "docs"
+  functions = "lambda"
 
 [[redirects]]
   from = "/*"
